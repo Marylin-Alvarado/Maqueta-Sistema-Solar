@@ -1,0 +1,487 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables CSS */
+:root {
+  --color-fondo: linear-gradient(to right, #000000, #8e44ad, #ff69b4, #ff4500, #2980b9);
+  --color-texto: white;
+  --color-sol: radial-gradient(circle, yellow, orange);
+  --tamano-fuente-base: 16px;
+  --tamano-sol: 120px;
+}
+
+/* Estilos globales */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: var(--color-fondo), url('https://www.transparenttextures.com/patterns/stardust.png');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  background-blend-mode: screen;
+  color: var(--color-texto);
+}
+
+h1 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Layout principal */
+.solar-system {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1200px;
+  max-height: 800px;
+  margin: 0 auto;
+}
+
+.sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--tamano-sol);
+  height: var(--tamano-sol);
+  background: var(--color-sol);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 40px yellow;
+  z-index: 10;
+}
+
+/* Órbitas */
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Planetas */
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: grab; /* Indica que el elemento es movible */
+}
+
+/* Animaciones */
+.orbit.mercury {
+  width: 160px;
+  height: 160px;
+  animation: rotate 4s linear infinite;
+}
+.orbit.venus {
+  width: 220px;
+  height: 220px;
+  animation: rotate 6s linear infinite;
+}
+.orbit.earth {
+  width: 280px;
+  height: 280px;
+  animation: rotate 8s linear infinite;
+}
+.orbit.mars {
+  width: 340px;
+  height: 340px;
+  animation: rotate 10s linear infinite;
+}
+.orbit.jupiter {
+  width: 420px;
+  height: 420px;
+  animation: rotate 14s linear infinite;
+}
+.orbit.saturn {
+  width: 500px;
+  height: 500px;
+  animation: rotate 18s linear infinite;
+}
+.orbit.uranus {
+  width: 580px;
+  height: 580px;
+  animation: rotate 22s linear infinite;
+}
+.orbit.neptune {
+  width: 660px;
+  height: 660px;
+  animation: rotate 26s linear infinite;
+}
+.orbit.moon {
+  width: 100px;
+  height: 100px;
+  animation: rotate 2s linear infinite;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Planetas – Tamaños fieles a la imagen */
+
+.planet.mercury {
+  width: 10px;
+  height: 10px;
+  background: #a7a7a7;
+  transform: translate(-50%, -50%) translateX(80px);
+  background-image: url('https://example.com/mercury.png');
+}
+.planet.venus {
+  width: 18px;
+  height: 18px;
+  background: #d4a373;
+  transform: translate(-50%, -50%) translateX(110px);
+  background-image: url('https://example.com/venus.png');
+}
+.planet.earth {
+  width: 20px;
+  height: 20px;
+  background: #2a9d8f;
+  transform: translate(-50%, -50%) translateX(140px);
+  background-image: url('https://example.com/earth.png');
+}
+.planet.mars {
+  width: 16px;
+  height: 16px;
+  background: #e76f51;
+  transform: translate(-50%, -50%) translateX(170px);
+  background-image: url('https://example.com/mars.png');
+}
+.planet.jupiter {
+  width: 60px;
+  height: 60px;
+  background: #f4a261;
+  transform: translate(-50%, -50%) translateX(210px);
+  background-image: url('https://example.com/jupiter.png');
+}
+.planet.saturn {
+  width: 50px;
+  height: 50px;
+  background: #e9c46a;
+  transform: translate(-50%, -50%) translateX(250px);
+  background-image: url('https://example.com/saturn.png');
+}
+.planet.saturn::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  top: 20px;
+  left: -15px;
+  transform: rotate(25deg);
+}
+.planet.uranus {
+  width: 40px;
+  height: 40px;
+  background: #a8dadc;
+  transform: translate(-50%, -50%) translateX(290px);
+  background-image: url('https://example.com/uranus.png');
+}
+.planet.neptune {
+  width: 40px;
+  height: 40px;
+  background: #457b9d;
+  transform: translate(-50%, -50%) translateX(330px);
+  background-image: url('https://example.com/neptune.png');
+}
+.planet.moon {
+  width: 8px;
+  height: 8px;
+  background: #d4d4d4;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(50px);
+}
+
+/* Ajustes para los nombres de los planetas */
+.planet-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  font-size: 14px;
+  color: #ffffff;
+  text-shadow: 0 0 5px #000000;
+  text-align: center;
+  z-index: 100;
+}
+
+/* Estilos para las cometas */
+.comet {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, white, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px white;
+  animation: move-comet 10s linear infinite;
+}
+
+.comet::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.comet1 {
+  top: 10%;
+  left: 20%;
+}
+
+.comet2 {
+  top: 30%;
+  left: 50%;
+}
+
+.comet3 {
+  top: 70%;
+  left: 80%;
+}
+
+/* Estilos para cometas adicionales */
+.comet4 {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, white, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px white;
+  animation: move-comet4 12s linear infinite;
+  top: 15%;
+  left: 25%;
+}
+
+.comet5 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, white, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 14px white;
+  animation: move-comet5 14s linear infinite;
+  top: 40%;
+  left: 60%;
+}
+
+/* Estilos para asteroides */
+.asteroid {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, gray, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px gray;
+  animation: spin-asteroid 8s linear infinite;
+}
+
+.asteroid1 {
+  top: 70%;
+  left: 30%;
+}
+
+.asteroid2 {
+  top: 80%;
+  left: 50%;
+}
+
+@keyframes move-comet {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(200px, -200px); /* Movimiento hacia una dirección diferente */
+  }
+}
+
+@keyframes move-comet4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(150px, 150px);
+  }
+}
+
+@keyframes move-comet5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-150px, -150px);
+  }
+}
+
+@keyframes spin-asteroid {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spin-galaxy {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-black-hole {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Estilos para la galaxia */
+.galaxy {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+  animation: spin-galaxy 20s linear infinite;
+  top: 20%;
+  left: 70%;
+}
+
+/* Estilos para el universo */
+.universe {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(0, 0, 255, 0.2), transparent);
+  z-index: -1;
+}
+
+/* Estilos para el agujero negro */
+.black-hole {
+  position: absolute;
+  width: 100px; /* Tamaño más grande */
+  height: 100px; /* Tamaño más grande */
+  background: radial-gradient(circle, black, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 50px black; /* Sombra más intensa */
+  animation: pulse-black-hole 5s ease-in-out infinite; /* Solo pulsación, sin movimiento */
+  top: 10%; /* Posición fuera del sistema solar */
+  left: 90%; /* Posición fuera del sistema solar */
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos para el agujero negro con disco de acreción */
+.black-hole-accretion {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, black, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 60px black;
+  animation: spin-accretion 10s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin-accretion {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Animación de explosión */
+@keyframes explosion {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.explosion {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, red, orange, yellow, transparent);
+  border-radius: 50%;
+  animation: explosion 1s ease-out;
+  pointer-events: none;
+}
+
+/* Media queries para diseño responsivo */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  .solar-system {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+/* Estilos para los controles */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+label {
+  margin-right: 10px;
+}
+input[type="range"] {
+  margin: 0 10px;
+  width: 200px;
+}
+button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
